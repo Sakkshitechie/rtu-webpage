@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTU Kota(web page)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+        header{
+            margin:0;
+            padding:0;
+            background-color:#6c7689;
+        }
+        .head-bar{
+            display: inline-block;
+        }
+        .top-bar{
+            list-style-type: none;
+            list-style: none;
+            float: left;
+        }
+        .top-bar a{
+            text-decoration: none;
+            margin-right: 1em;
+        }
+        body{
+            width: 100%;
+            height:auto;
+            margin:0px;
+        }
+        .head-content{
+            margin:0;
+            padding: 0px;
+            background-color:#6c7689;
+        }
+        .left-content{
+            text-align: center;
+            vertical-align: middle;
+            height:500px;
+            width:50%;
+            float:left;
+        }
+        .right-content{
+            width:50%;
+            height:500px;
+            float: right;
+            display: inline-flex;
+        }
+        .image_slide{
+            transition-behavior: smooth;
+        }
+        .nav {
+            display: flex;
+            background-color: #6c7689;
+            height:auto;
+        }
+        .dropbtn{
+            display:inline-block;
+            padding:14px 16px;
+            text-decoration: none;
+            color:white;
+        }
+        .list{
+            display: block;
+        }
+        .dropdown{
+            display: inline-block;
+            overflow: hidden;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color:white;
+            box-shadow:#fff;
+            min-width: 160px;
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #b0b4bb;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .container{
+            margin:0%;
+            width:100%;
+            padding:0%;
+        }
+        .department{
+            margin: 0%;
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            font-size: large;
+            height: 500px;
+        }
+        .courses{
+            margin:0%;
+            padding-left: 20px;
+            padding-right: 20px;
+            height:500px;
+            font-size: large;
+        }
+        .department-name, .courses-name{
+            list-style-type:square;
+            margin: 20px;
+            padding: 0;
+        }
+        .faculty{
+            margin:0;
+            padding-left:30px;
+            padding-right:30px;
+        }
+        .library{
+            background-color:#f4c6bd;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            text-align: justify;
+        }
+        .library-list{
+            list-style-type:circle;
+        }
+        table, th, td{
+            margin: 0;
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px 5px;
+            font-family: 'Times New Roman', Times, serif;
+            padding-block: 15px;
+            text-align: center;
+        }
+        th{
+            background-color:#efa496;
+        }
+        tr:nth-child(odd){
+            background-color:#e9e9eb;
+        }
+        .logo{
+            margin:10px;
+            margin-left: 55px;
+            padding:0px;
+        }
+        div {
+            display: block;
+        }
+        footer{
+            margin:0;
+            padding:5px;
+            background-color:#6c7689;
+        }
+        .footer-bar{
+            display: inline-block;
+        }
+        .footer-bar a{
+            margin-right: 1em;
+        }
+        .bottom-bar{
+            list-style-type: none;
+            list-style: none;
+            float: left;
+        }
+        .icon{
+            background-color: transparent;
+            color: black;
+        }
+        .slider {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+          
+        .slides img {
+            width: 100%;
+            object-fit: cover;
+        }
+        .slider-container{
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+         }
+        .slides1{
+            display: flex;
+            
+            padding: 0px;
+            transition: transform 0.5s ease-in-out;
+            animation: slideAnimation 8s infinite alternate;
+          }
+          @keyframes slideAnimation {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+          }
+          .department, .courses{
+            background-color:#e9e9eb;
+          }
+          .prev,
+          .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1;
+          }
+          .prev {
+            left: 0;
+          }
+          .next {
+            right: 0;
+          }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="head-bar">
+            <ul class="top-bar">
+                <a class="icon" href="https://www.facebook.com/SocialRTUKota/"><i class="fa fa-facebook"></i></a>
+                <a class="icon" href="https://twitter.com/socialmediartu"><i class="fa fa-twitter"></i></a>
+                <a class="icon" href="https://www.linkedin.com/school/rtukotaa"><i class="fa fa-linkedin"></i></a>
+                <a class="icon" href="https://www.youtube.com/channel/UCaHTPPVpmT6bfJ-176Fhz0Q"><i class="fa fa-youtube"></i></a>
+            </ul>
+        </div>
+    </header>
+    <div class="logo">
+        <img src="./images/th.jpg" alt="Rtu logo" height="60cm" width="60cm">
+        <img src="http://www.rtu.ac.in/home/wp-content/uploads/2020/05/RTU-MG150-.png" width="200" alt="img" style="margin-left: 10px;">
+    </div>
+    <nav class="nav">
+        <div class="dropdown">
+            <a class="dropbtn">Menu</a>
+            <div class="dropdown-content">
+                <a href="#department" class="list">Department<i class="fa fa-caret-down" style="margin: 5px;"></i></a>
+                <a href="#course" class="list">Courses<i class="fa fa-caret-down" style="margin: 5px;"></i></a>
+                <a href="#faculty" class="list">Faculties<i class="fa fa-caret-down" style="margin: 5px;"></i></a>
+                <a href="#library" class="list">Library<i class="fa fa-caret-down" style="margin: 5px;"></i></a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a class="dropbtn">Academics</a>
+            <div class="dropdown-content">
+                <a href="#">Home Page</a>
+                <a href="#">Academic Calendar</a>
+                <a href="#">List of affiliated colleges</a>
+                <a href="#">College Info</a>
+                <a href="#">RTU Syllabus</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a class="dropbtn">Department</a>
+            <div class="dropdown-content">
+                <a href="#">Bachelor's of Technology(B.Tech)</a>
+                <a href="#">Bachelor's of Architecture(B.Arch)</a>
+                <a href="#">Master's of Technology(M.Tech)</a>
+                <a href="#">Master's of Architecture(M.Arch)</a>
+                <a href="#">Master's of Computer Application(MCA)</a>
+                <a href="#">Master of Business Administration (MBA)</a>
+                <a href="#">Doctor of Philosophy(Ph.D)</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a class="dropbtn">Examinations</a>
+            <div class="dropdown-content">
+                <a href="Timetable.html">Time Table</a>
+                <a href="#">Exam Centers</a>
+                <a href="#">Notices and Orders</a>
+                <a href="#">Results/Marksheets</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a class="dropbtn">Research</a>
+            <div class="dropdown-content">
+                <a href="#">PhD Home</a>
+                <a href="#">Notifications</a>
+                <a href="#">Downloads</a>
+                <a href="#">Contacts</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a class="dropbtn">RTU</a>
+            <div class="dropdown-content">
+                <a href="#">VC Secretariat</a>
+                <a href="#">Academics</a>
+                <a href="#">Registrar Office</a>
+                <a href="#">Finance/Accounts</a>
+            </div>
+        </div>
+    </nav>
+    <div class="head-content">
+        <aside>
+        <div class="left-content">
+        <h1><br><br>RAJASTHAN TECHNICAL UNIVERSITY KOTA<br></h1>
+        <img src="./images/th.jpg" alt="Rtu logo" height="200cm" width="200cm">
+        </div>
+        <div class="right-content">
+            <div class="image_slide">
+                <div class="slider">
+                    <div class="slides">
+                      <img src="./images/sliderimg1.jpeg" alt="Image 1" height="500px" width="632px">
+                      <img src="./images/sliderimg2.jpeg" alt="Image 2" height="500px" width="600px">
+                      <img src="./images/sliderimg3.jpeg" alt="Image 3" height="500px" width="300px">
+                      <img src="./images/sliderimg4.jpg" alt="Image 4" height="500px" width="400px">
+                    </div>
+                    <button class="prev" onclick="plusSlide(-1)">&#10094;</button>
+                    <button class="next" onclick="plusSlide(1)">&#10095;</button>
+                  </div>
+            </div>
+        </div>
+        </aside>
+    </div>
+    <div style="margin:0; background-color:#efa496;color: black; width:100%;">
+        <marquee>
+            <ul>
+            <li>
+            <a style="font-weight: bolder;color:black; text-decoration:none;"
+             href="/index/Adminpanel/Images/Media/10012024122908-media.pdf" target="_blank">
+                NOTICE INVITING APPLICATIONS FOR APPOINTMENT OF VICE CHANCELLOR Uttar Pradesh Rajarshi Tandon Open University 
+            <img src="https://rtu.ac.in/index/Adminpanel/Images/newicon1.gif" alt="newicon"> </a>
+            </li>
+            </ul>
+        </marquee>
+    </div>
+    <div class="container">
+        <div class="department" id="department">
+        <ul class="department-name">
+            <hr>
+            <h2>Department</h2>
+            <li>Aeronautical Department</li>
+            <li>Mechanical Department</li>
+            <li>Civil Engineering Department</li>
+            <li>Electrical Department</li>
+            <li>Electronics and Communication  Engineering Department</li>
+            <li>Computer Science Engineering Department</li>
+            <li>Petrochemical Department</li>
+            <li>Mining Department</li>
+            <li>Electronics and Instrumentation Control Department</li>
+        </ul>
+        </div>
+        <div class="courses" id="course">
+            <ul class="courses-name"></ul>
+            <hr>
+            <h2>Courses</h2>
+                <li>Bachelor of Technology(B.Tech)</li>
+                <li>Bachelor of Architecture(B.Arch)</li>
+                <li>Master of Technology(M.Tech)</li>
+                <li>Master of Architecture(M.Arch)</li>
+                <li>Master of Business Administration (MBA)</li>
+                <li>Master of Computer Applications (MCA)</li>
+                <li>Doctor of Philosophy(Ph.D)</li>
+            </ul>
+        </div>
+        <div class="slider-container">
+            <div class="slides1">
+              <img src="./images/Infra1.jpg" alt="Infrastructure" name="Infrastructure">
+              <img src="./images/press_release.jpg" alt="Press Release" name="Press Release">
+              <img src="./images/events.jpg" alt="Events" name="Events">
+              <img src="./images/our_mission.jpg" alt="Our_mission" name="Our_mission">
+            </div>
+            <button class="prev" onclick="plusSlide(-1)">&#10094;</button>
+            <button class="next" onclick="plusSlide(1)">&#10095;</button>
+        </div>
+        <select id="imageSelect" onchange="selectImage()">
+            <option value="./images/Infra1.jpg">Infrastructure</option>
+            <option value="./images/press_release.jpg">Press Release</option>
+            <option value="./images/events.jpg">Events</option>
+            <option value="./images/our_mission.jpg">Our mission</option>
+        </select>
+        <div class="faculty" id="faculty">
+            <hr style="margin-top: 100px;">
+            <h2>Faculties</h2>
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Highest Qualification</th>
+                    <th>Specialization</th>
+                    <th>Email</th>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>Dr. R.S. Meena</td>
+                    <td>Professor & Head<br>(Electronics department)</td>
+                    <td>PhD. (IITD)</td>
+                    <td>VLSI Design, Microelectronics,EMFT, Microwave</td>
+                    <td>rssmeena@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>Dr. Mithilesh Kumar (on Lien)</td>
+                    <td>Professor(Electronics and Communication Department)</td>
+                    <td>PhD. (IITD)</td>
+                    <td>R.F & Microwave</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td>Dr. Rajeev Gupta</td>
+                    <td>Professor(Electronic Instrumentation and Control Department)</td>
+                    <td>PhD. (IITB)</td>
+                    <td>Control & Instrumentation, Soft Computing, Intelligent Control</td>
+                    <td>rajeev_eck@yahoo.com</td>
+                </tr>
+                <tr>
+                    <td>4.</td>
+                    <td>Dr. A.K. Mathur</td>
+                    <td>Professor(Civil Engineering Department)</td>
+                    <td>M.E.,Ph.D.</td>
+                    <td>Research on Environmental Engg.</td>
+                    <td>akmathur@rtu.ac.in</td>
+                </tr>
+                <tr>
+                    <td>5.</td>
+                    <td>Dr. S.C. Jain</td>
+                    <td>Professor(Computer Science Department)</td>
+                    <td>M.Tech.,Ph.D.</td>
+                    <td>VLSI Design, Real Time Systems, Advanced Algorithms </td>
+                    <td>scjain1@yahoo.com</td>
+                </tr>
+                <tr>
+                    <td>6.</td>
+                    <td>Dr. Mithilesh Kumar (on Lien)</td>
+                    <td>Professor(Electronics and Communication Department)</td>
+                    <td>PhD. (IITD)</td>
+                    <td>R.F & Microwave</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>7.</td>
+                    <td>Dr. C.P. Gupta</td>
+                    <td>Professor(Computer Science Department)</td>
+                    <td>M.Tech.,Ph.D.</td>
+                    <td>Computer Networks,Information, Security , Wireless Sensor Networks</td>
+                    <td>guptacp2@rediffmail.com</td>
+                </tr>
+            </table>
+        </div>
+        <div class="library" id="library">
+            <hr style="margin-top: 100px;">
+            <h2 style="margin-top: 30px;">Library</h2>
+            <p style="margin-bottom: 30px;">Central Library of Rajasthan Technical University, Kota ( Formerly knows University
+                 college of Engineering, Kota was established 1984. It caters to the information needs of the faculty members, 
+                 students, staff, and research scholars. It works on an open access system. The Central Library possesses around 
+                 1,00,043 books and more then 9975 e-journals covering the disciplines of all Departments as
+                <ul>
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.WyFX1UEu1QUHNuIyhzpDRgHaEN&pid=Api&P=0&h=180"><br><br><br>
+                        <li>Mechanical Engineering</li>
+                        <li>Production and Industrial Engineering</li>
+                        <li>Civil Engineering</li>
+                        <li>Electrical Engineering</li>
+                        <li>Electronics and Communication Engineering</li>
+                        <li>Electronic Instrumentation Control Engineering</li>
+                        <li>Computer Science</li>
+                        <li>Information Technology</li>
+                        <li>Aeronautical Engineering,etc.</li>
+                </ul>
+                <br>
+                The Central Library collection also comprises printed documents such as books, reports, theses, standards, Atlases, 
+                Patents and back volumes of journals. The non-book collection includes material like audio/video cassettes and CD-ROM 
+                discs etc.
+                The Central Library is a member of Indian National Digital Library in Engineering, Sciences, and Technology and All India
+                 Council of Technical Education (INDEST-AICTE) Consortium, New Delhi for accessing e-journals and also member of Institute 
+                 for Steel Development and Growth (INSDAG), KOLKATA for Sharing it’s resources in the interest of faculty and students. 
+                 Central Library is also a Member of Developing Library Network (DELNET) New Delhi for sharing the resources among its 
+                 Member Libraries.
+                Central Library has been subscribing e-journals of IEL online, ASCE online, ASME online, Emereld-95, Access Engineering 
+                Library, J-Gate(JET) ASTM Digital Library and various digital libraries for accessing e-journals.
+                Central Library is housed in a two storied separate building which can accommodate around 150 users at a time to persue 
+                the academic and research activities by way of reading books, accessing electronic journals and internet and computer 
+                programming. It is connected to high speed internet. All activities of Central Library are computerized, including bar-coded 
+                ID cards and separate On- line public access catalogue(OPAC) terminal to know the status of books at any time since 2015.
+                <br><br><br></p>
+        </div>
+        <footer>
+            <div class="footer-bar">
+                <ul class="bottom-bar">
+                    <a class="icon" href="https://www.facebook.com/SocialRTUKota/"><i class="fa fa-facebook"></i></a>
+                    <a class="icon" href="https://twitter.com/socialmediartu"><i class="fa fa-twitter"></i></a>
+                    <a class="icon" href="https://www.linkedin.com/school/rtukotaa"><i class="fa fa-linkedin"></i></a>
+                    <a class="icon" href="https://www.youtube.com/channel/UCaHTPPVpmT6bfJ-176Fhz0Q"><i class="fa fa-youtube"></i></a>
+                    <a class="icon" href="#"><i class="fa fa-home"></i></a>
+                </ul>
+            </div>
+        </footer>
+    </div>
+<script>
+    let slideIndex = 0;
+showSlides();
+
+function plusSlide(n) {
+  showSlides(slideIndex += n);
+}
+function selectImage() {
+    const selectedImageName = document.getElementById("imageSelect").value;
+    const selectedIndex = Array.from(slides).findIndex(slide => slide.name === selectedImageName);
+    if (selectedIndex !== -1) {
+      slideIndex = selectedIndex;
+      showSlides();
+    }
+  }
+function showSlides() {
+  let i;
+  let slides = document.querySelectorAll('.slides img');
+
+  if (slideIndex >= slides.length) {
+    slideIndex = 0;
+  } else if (slideIndex < 0) {
+    slideIndex = slides.length - 1;
+  }
+
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slides[slideIndex].style.display = "block";
+  slideIndex++;
+  setTimeout(showSlides, 2000);
+}
+
+</script>
+</body>
+</html>
